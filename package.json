@@ -1,0 +1,30 @@
+{
+  "name": "pi-antigravity-status",
+  "version": "0.1.0",
+  "description": "Additive Pi status line for the active Antigravity account quota.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raythunder/pi-antigravity-status.git"
+  },
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "antigravity",
+    "statusline"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "check": "bun test"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.80.0",
+    "pi-antigravity": ">=0.8.1"
+  }
+}
