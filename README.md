@@ -31,8 +31,10 @@ AG r***@gmail.com │ 5h 1h40m ███░░░░░ 31.8% │ Week 17h33m �
 先安装并登录 `pi-antigravity`，再安装本插件：
 
 ```bash
-pi install https://github.com/raythunder/pi-antigravity-status
+pi install npm:pi-antigravity-status
 ```
+
+也可以直接从 GitHub 安装：`pi install https://github.com/raythunder/pi-antigravity-status`。
 
 安装后重启 Pi，或在现有 Pi 会话中运行 `/reload`。
 
