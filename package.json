@@ -1,6 +1,6 @@
 {
   "name": "pi-antigravity-status",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Additive Pi status line for the active Antigravity account quota.",
   "repository": {
     "type": "git",
