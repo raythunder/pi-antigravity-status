@@ -2,8 +2,13 @@ import { describe, expect, test } from "bun:test";
 import { maskEmail, parseActiveAccountLabel } from "../src/account.ts";
 
 describe("maskEmail", () => {
-  test("keeps only the first local-part character and domain", () => {
-    expect(maskEmail("alice@example.com")).toBe("a***@example.com");
+  test("keeps the first and last two local-part characters", () => {
+    expect(maskEmail("alice@example.com")).toBe("al***ce@example.com");
+  });
+
+  test("uses one character on each side for short local parts", () => {
+    expect(maskEmail("abcd@example.com")).toBe("a***d@example.com");
+    expect(maskEmail("ab@example.com")).toBe("a***b@example.com");
   });
 });
 
@@ -22,7 +27,7 @@ describe("parseActiveAccountLabel", () => {
       },
     });
 
-    expect(parseActiveAccountLabel(value)).toBe("a***@example.com");
+    expect(parseActiveAccountLabel(value)).toBe("al***ce@example.com");
   });
 
   test("rejects malformed stores", () => {

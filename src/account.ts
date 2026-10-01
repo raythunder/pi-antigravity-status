@@ -16,7 +16,12 @@ export function maskEmail(email: string): string {
   const normalized = email.trim();
   const separatorIndex = normalized.indexOf("@");
   if (separatorIndex <= 0 || separatorIndex === normalized.length - 1) return normalized;
-  return `${normalized[0]}***${normalized.slice(separatorIndex)}`;
+
+  const localPart = normalized.slice(0, separatorIndex);
+  const domain = normalized.slice(separatorIndex);
+  if (localPart.length <= 1) return `${localPart}***${domain}`;
+  if (localPart.length <= 4) return `${localPart[0]}***${localPart.at(-1)}${domain}`;
+  return `${localPart.slice(0, 2)}***${localPart.slice(-2)}${domain}`;
 }
 
 function maskAccountId(accountId: string): string {
